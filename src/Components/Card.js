@@ -7,6 +7,7 @@ const Card = ({data}) => {
         window.open(url)
      }
      
+     
   return (
     <div className='cardContainer'>
     {data.map((curItem,index)=>{
@@ -15,10 +16,10 @@ const Card = ({data}) => {
         }else{
             return(
             <div className='card'>
-                <img src={curItem.urlToImage}/>
+                <img src={curItem.urlToImage} onClick={()=>window.open(curItem.url)} style={{cursor:'pointer'}}/>
                 <div className='content'>
                     <a className='title' onClick={()=>window.open(curItem.url)}>{curItem.title}</a>
-                    <p>{curItem.description}</p>
+                    <p>{curItem.description}</p><p>{curItem.publishedAt}</p>
                     <button onClick={()=>window.open(curItem.url)}>Read More</button>
                 </div>
             </div>
